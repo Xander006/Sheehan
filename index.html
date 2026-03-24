@@ -10,13 +10,14 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23B8301C'/><text x='50%' y='54%' font-size='46' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' fill='white' font-weight='bold' letter-spacing='-2'>SB</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23B8301C'/><text x='50%' y='54%' font-size='46' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' fill='white' font-weight='bold' letter-spacing='-2'>SB</text></svg>">
 <meta name="theme-color" content="#252830">
+<link rel="preload" as="image" href="hero.jpg">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sheehanbrothersbutchers.com/">
 <meta property="og:title" content="Sheehan Brothers Butchers | Traditional Craft Butchers Since 1870">
 <meta property="og:description" content="Family craft butchers since 1870. Five locations across Cork City and North Cork. Award-winning sausages, spiced beef and the finest Irish cuts.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1200&q=85&fit=crop">
+<meta property="og:image" content="https://sheehanbrothersbutchers.com/hero.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_IE">
@@ -26,7 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sheehan Brothers Butchers | Traditional Craft Butchers Since 1870">
 <meta name="twitter:description" content="Family craft butchers since 1870. Five locations across Cork City and North Cork.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=1200&q=85&fit=crop">
+<meta name="twitter:image" content="https://sheehanbrothersbutchers.com/hero.jpg">
 
 <!-- Geo -->
 <meta name="geo.region" content="IE-CO">
@@ -49,7 +50,7 @@
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "ButcherShop",
       "@id": "https://sheehanbrothersbutchers.com/#mallow-main",
       "name": "Sheehan Brothers Butchers — Mallow Main Street",
       "parentOrganization": { "@id": "https://sheehanbrothersbutchers.com/#organization" },
@@ -72,7 +73,7 @@
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "ButcherShop",
       "@id": "https://sheehanbrothersbutchers.com/#mallow-ballydaheen",
       "name": "Sheehan Brothers Butchers — Mallow Ballydaheen",
       "parentOrganization": { "@id": "https://sheehanbrothersbutchers.com/#organization" },
@@ -93,14 +94,16 @@
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "ButcherShop",
       "@id": "https://sheehanbrothersbutchers.com/#glanmire",
       "name": "Sheehan Brothers Butchers — Glanmire",
       "parentOrganization": { "@id": "https://sheehanbrothersbutchers.com/#organization" },
       "telephone": "+353214821666",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Hazelwood Centre",
         "addressLocality": "Glanmire",
+        "postalCode": "T45 HR98",
         "addressRegion": "County Cork",
         "addressCountry": "IE"
       },
@@ -114,7 +117,7 @@
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "ButcherShop",
       "@id": "https://sheehanbrothersbutchers.com/#kanturk",
       "name": "Sheehan Brothers Butchers — Kanturk",
       "parentOrganization": { "@id": "https://sheehanbrothersbutchers.com/#organization" },
@@ -136,14 +139,16 @@
       ]
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "ButcherShop",
       "@id": "https://sheehanbrothersbutchers.com/#st-lukes",
       "name": "Sheehan Brothers Butchers — St. Luke's Cross",
       "parentOrganization": { "@id": "https://sheehanbrothersbutchers.com/#organization" },
       "telephone": "+353214505075",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "35 St. Luke's Cross",
         "addressLocality": "Cork City",
+        "postalCode": "T23 PY88",
         "addressRegion": "County Cork",
         "addressCountry": "IE"
       },
@@ -216,13 +221,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* MOBILE MENU */
-.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--cream);border-bottom:2px solid var(--ink);z-index:99;flex-direction:column;padding:1rem 2rem 1.5rem;}
-.mobile-menu.open{display:flex;}
+.mobile-menu{display:flex;position:fixed;top:64px;left:0;right:0;background:var(--cream);border-bottom:2px solid var(--ink);z-index:99;flex-direction:column;padding:1rem 2rem 1.5rem;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s;pointer-events:none;}
+.mobile-menu.open{visibility:visible;opacity:1;transform:translateY(0);pointer-events:auto;}
 .mobile-menu a{font-size:0.82rem;font-weight:500;text-decoration:none;color:var(--ink);letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 0;border-bottom:1px solid var(--paper-dark);display:block;transition:color 0.2s;}
 .mobile-menu a:last-child{border-bottom:none;}
 .mobile-menu a:hover{color:var(--red);}
 .mobile-menu .mob-call{color:var(--red)!important;font-weight:500;}
 .mobile-menu .mob-call-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);padding:0.85rem 0 0.3rem;border-bottom:none!important;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* ACTIVE NAV */
+.nav-left a.nav-active,.nav-right a.nav-active{color:var(--red);}
 
 /* HERO - full bleed two halves */
 .hero{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
@@ -493,7 +506,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
     <a href="#locations" class="hero-cta">Find your nearest store &rarr;</a>
   </div>
   <div class="hero-right">
-    <img src="hero.jpg" alt="Fresh premium cuts on display at Sheehan Brothers Butchers" loading="eager">
+    <img src="hero.jpg" alt="Fresh premium cuts on display at Sheehan Brothers Butchers" loading="eager" width="1200" height="900">
     <div class="hero-stat"><div class="hero-stat-num">156</div><div class="hero-stat-lbl">Years of craft</div></div>
   </div>
 </section>
@@ -516,8 +529,8 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
       </div>
     </div>
     <div class="about-right">
-      <div class="about-fact"><div class="about-fact-num">1870</div><div class="about-fact-label">First shop opened in Mallow, Co. Cork</div></div>
-      <div class="about-fact"><div class="about-fact-num">5</div><div class="about-fact-label">Stores across Cork City and North Cork</div></div>
+      <div class="about-fact"><div class="about-fact-num" data-count="1870" data-count-from="1840">1870</div><div class="about-fact-label">First shop opened in Mallow, Co. Cork</div></div>
+      <div class="about-fact"><div class="about-fact-num" data-count="5" data-count-from="0">5</div><div class="about-fact-label">Stores across Cork City and North Cork</div></div>
       <div class="about-fact"><div class="about-fact-num">7th</div><div class="about-fact-label">Generation now involved in the business</div></div>
     </div>
   </div>
@@ -545,7 +558,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
   <div class="loc-row-head" aria-hidden="true"><div class="loc-head-cell">Store</div><div class="loc-head-cell">Phone</div><div class="loc-head-cell">Get in Touch</div></div>
   <div class="loc-row"><div><div class="loc-name">Mallow &mdash; Main Street</div><div class="loc-area">66 Main Street, Mallow, Co. Cork</div></div><div><a href="tel:02221724" class="loc-phone">022 21724</a></div><div class="loc-actions"><a href="tel:02221724" class="loc-cta">Call now</a><button class="loc-map" onclick="openMap('https://www.google.com/maps/search/?api=1&query=66+Main+Street,+Mallow,+Cork,+Ireland','https://maps.apple.com/?q=66+Main+Street,+Mallow,+Cork,+Ireland')">Directions &rarr;</button></div></div>
   <div class="loc-row"><div><div class="loc-name">Mallow &mdash; Ballydaheen</div><div class="loc-area">Ballydaheen, Mallow, Co. Cork</div></div><div><a href="tel:02243692" class="loc-phone">022 43692</a></div><div class="loc-actions"><a href="tel:02243692" class="loc-cta">Call now</a><button class="loc-map" onclick="openMap('https://www.google.com/maps?q=52.1306267,-8.6414661','https://maps.apple.com/?ll=52.1306267,-8.6414661&q=Sheehan+Brothers+Butchers+Ballydaheen')">Directions &rarr;</button></div></div>
-  <div class="loc-row"><div><div class="loc-name">Glanmire</div><div class="loc-area">Glanmire, Co. Cork</div></div><div><a href="tel:0214821666" class="loc-phone">021 482 1666</a></div><div class="loc-actions"><a href="tel:0214821666" class="loc-cta">Call now</a><button class="loc-map" onclick="openMap('https://www.google.com/maps/search/?api=1&query=Sheehan+Brothers+Butchers,+Glanmire,+Cork,+Ireland','https://maps.apple.com/?q=Sheehan+Brothers+Butchers,+Glanmire,+Cork,+Ireland')">Directions &rarr;</button></div></div>
+  <div class="loc-row"><div><div class="loc-name">Glanmire</div><div class="loc-area">Hazelwood Centre, Glanmire, T45 HR98, Co. Cork</div></div><div><a href="tel:0214821666" class="loc-phone">021 482 1666</a></div><div class="loc-actions"><a href="tel:0214821666" class="loc-cta">Call now</a><button class="loc-map" onclick="openMap('https://www.google.com/maps/search/?api=1&query=Hazelwood+Centre+Glanmire+T45HR98+Cork+Ireland','https://maps.apple.com/?q=Hazelwood+Centre,+Glanmire,+T45+HR98,+Cork,+Ireland')">Directions &rarr;</button></div></div>
   <div class="loc-row"><div><div class="loc-name">Kanturk</div><div class="loc-area">Market Square, Kanturk, Co. Cork</div></div><div><a href="tel:02950849" class="loc-phone">029 50849</a></div><div class="loc-actions"><a href="tel:02950849" class="loc-cta">Call now</a><button class="loc-map" onclick="openMap('https://www.google.com/maps/search/?api=1&query=Market+Square,+Kanturk,+Cork,+Ireland','https://maps.apple.com/?q=Market+Square,+Kanturk,+Cork,+Ireland')">Directions &rarr;</button></div></div>
   <div class="loc-row"><div><div class="loc-name">St. Luke&rsquo;s Cross</div><div class="loc-area">St. Luke&rsquo;s Cross, Cork City</div></div><div><a href="tel:0214505075" class="loc-phone">021 450 5075</a></div><div class="loc-actions"><a href="tel:0214505075" class="loc-cta">Call now</a><button class="loc-map" onclick="openMap('https://www.google.com/maps/search/?api=1&query=35+St+Lukes+Cross+Cork+T23PY88+Ireland','https://maps.apple.com/?q=35+St+Lukes+Cross,+Cork,+T23+PY88,+Ireland')">Directions &rarr;</button></div></div>
 </section>
@@ -693,6 +706,69 @@ function openMap(googleUrl, appleUrl) {
 
 // Auto-update copyright year
 document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+// Scroll reveal — add class via JS so sections stay visible if JS fails
+(function(){
+  var targets = document.querySelectorAll('#about, .products-section, .locations-section, .hours-strip, .instagram-section, .contact-section, footer');
+  if(!('IntersectionObserver' in window)) return;
+  targets.forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.08});
+  targets.forEach(function(el){ io.observe(el); });
+})();
+
+// Counter animation on about stats
+(function(){
+  var facts = document.querySelectorAll('.about-fact-num[data-count]');
+  if(!facts.length || !('IntersectionObserver' in window)) return;
+  function easeOut(t){ return 1 - Math.pow(1 - t, 3); }
+  function animateNum(el){
+    var start = +(el.dataset.countFrom || 0);
+    var end = +el.dataset.count;
+    var dur = 1400;
+    var t0 = null;
+    (function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      el.textContent = Math.round(start + (end - start) * easeOut(p));
+      if(p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ animateNum(e.target); io.unobserve(e.target); }
+    });
+  }, {threshold:0.5});
+  facts.forEach(function(el){ io.observe(el); });
+})();
+
+// Active nav link based on current section
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var map = {about:null,products:null,locations:null,contact:null};
+  Object.keys(map).forEach(function(id){
+    map[id] = document.querySelector('.nav-left a[href="#'+id+'"], .nav-right a[href="#'+id+'"]');
+  });
+  function setActive(id){
+    Object.values(map).forEach(function(a){ if(a) a.classList.remove('nav-active'); });
+    if(map[id]) map[id].classList.add('nav-active');
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) setActive(e.target.id);
+    });
+  }, {rootMargin:'-20% 0px -70% 0px'});
+  Object.keys(map).forEach(function(id){
+    var sec = document.getElementById(id);
+    if(sec) io.observe(sec);
+  });
+})();
 
 // Call & Collect dropdown
 (function(){
