@@ -7,7 +7,9 @@
 <meta name="description" content="Family craft butchers since 1870. Five locations across Cork City and North Cork. Award-winning sausages, spiced beef, fresh Irish meat and a call &amp; collect service.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sheehanbrothersbutchers.com/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23B8301C'/><text y='.9em' font-size='72' x='50%' text-anchor='middle' dominant-baseline='top' font-family='Georgia,serif' fill='white'>S</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23B8301C'/><text x='50%' y='54%' font-size='46' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' fill='white' font-weight='bold' letter-spacing='-2'>SB</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23B8301C'/><text x='50%' y='54%' font-size='46' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' fill='white' font-weight='bold' letter-spacing='-2'>SB</text></svg>">
+<meta name="theme-color" content="#252830">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -43,7 +45,7 @@
       "foundingDate": "1870",
       "sameAs": [
         "https://www.instagram.com/sheehansbutchers/",
-        "https://www.facebook.com/SheehanButchers/"
+        "https://www.facebook.com/SheehanBrothersButchers/"
       ]
     },
     {
@@ -172,6 +174,14 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
+/* SKIP LINK */
+.skip-link{position:absolute;top:-100px;left:1rem;background:var(--red);color:#fff;padding:0.6rem 1.2rem;font-size:0.82rem;font-weight:500;text-decoration:none;z-index:999;transition:top 0.2s;}
+.skip-link:focus{top:1rem;}
+
+/* FOCUS STYLES */
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px;}
+
 /* NAV - centred logo, left/right links */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 3rem;height:64px;background:rgba(251,248,243,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(44,31,24,0.18);}
 .nav-left{display:flex;gap:2.5rem;list-style:none;}
@@ -180,6 +190,10 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .nav-logo{text-align:center;text-decoration:none;font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:-0.01em;line-height:1.2;}
 .nav-logo span{display:block;font-size:0.58rem;font-weight:400;font-family:var(--sans);letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-top:2px;}
 .nav-right{display:flex;gap:2rem;list-style:none;justify-content:flex-end;align-items:center;}
+.nav-social{display:flex;gap:1rem;align-items:center;}
+.nav-social a{display:flex;align-items:center;color:var(--ink-soft);transition:color 0.2s;}
+.nav-social a:hover{color:var(--red);}
+.nav-social svg{width:16px;height:16px;fill:currentColor;}
 .call-dropdown{position:relative;list-style:none;}
 .nav-call{background:var(--red);color:#fff;padding:0.45rem 1.1rem;border-radius:4px;font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;transition:background 0.2s;cursor:pointer;border:none;font-family:var(--sans);}
 .nav-call:hover,.call-dropdown.open .nav-call{background:var(--ink);}
@@ -210,13 +224,13 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .mobile-menu .mob-call-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);padding:0.85rem 0 0.3rem;border-bottom:none!important;}
 
 /* HERO - full bleed two halves */
-.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
+.hero{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
 .hero-left{background:var(--dark-bg);padding:5rem 4rem 5rem 5rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
 .hero-est{font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--red-light);margin-bottom:2rem;display:flex;align-items:center;gap:0.75rem;}
 .hero-est::before{content:'';width:28px;height:1px;background:var(--red-light);}
 .hero-title{font-family:var(--serif);font-size:clamp(2.8rem,5vw,5.2rem);font-weight:400;line-height:1.05;letter-spacing:-0.02em;color:#F8F4EE;margin-bottom:2rem;}
 .hero-title em{font-style:italic;color:var(--red-light);}
-.hero-sub{font-size:0.95rem;font-weight:300;color:rgba(248,244,238,0.5);max-width:38ch;line-height:1.8;margin-bottom:3rem;}
+.hero-sub{font-size:0.95rem;font-weight:300;color:rgba(248,244,238,0.75);max-width:38ch;line-height:1.8;margin-bottom:3rem;}
 .hero-cta{display:inline-flex;align-items:center;gap:0.75rem;border:1px solid rgba(248,244,238,0.22);color:#F8F4EE;padding:0.85rem 1.8rem;font-size:0.82rem;font-weight:500;text-decoration:none;letter-spacing:0.04em;transition:background 0.2s,border-color 0.2s;width:fit-content;}
 .hero-cta:hover{background:var(--red);border-color:var(--red);}
 .hero-right{position:relative;overflow:hidden;}
@@ -285,7 +299,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .loc-phone{font-size:0.9rem;font-weight:400;color:var(--red);text-decoration:none;transition:color 0.2s;}
 .loc-phone:hover{color:var(--ink);}
 .loc-actions{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;justify-self:end;}
-.loc-cta,.loc-map{font-size:0.7rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid;padding-bottom:2px;transition:color 0.2s,border-color 0.2s;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans);padding-left:0;padding-right:0;}
+.loc-cta,.loc-map{font-size:0.7rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid;padding-bottom:2px;transition:color 0.2s,border-color 0.2s;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans);padding-left:0;padding-right:0;min-height:44px;display:inline-flex;align-items:center;}
 .loc-cta{color:var(--ink);border-color:var(--ink);}
 .loc-cta:hover{color:var(--red);border-color:var(--red);}
 .loc-map{color:var(--ink-soft);border-color:rgba(92,64,51,0.35);}
@@ -323,6 +337,9 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .form-group textarea{min-height:130px;}
 .form-submit{align-self:flex-start;background:var(--red);color:#fff;border:none;padding:0.85rem 2rem;font-family:var(--sans);font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background 0.2s;}
 .form-submit:hover{background:var(--ink);}
+.form-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.form-success{display:flex;flex-direction:column;gap:0.75rem;padding:2rem;background:var(--paper-dark);border-left:3px solid var(--red);}
+.form-success p{font-size:0.95rem;font-weight:300;color:var(--ink-soft);line-height:1.7;}
 @media(max-width:1000px){.contact-section{padding:3rem 2rem;}.contact-inner{grid-template-columns:1fr;gap:2.5rem;}}
 @media(max-width:600px){.contact-section{padding:2.5rem 1.5rem;}}
 
@@ -344,7 +361,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 /* RESPONSIVE — tablet (≤1000px) */
 @media(max-width:1000px){
   /* Nav: show hamburger, hide links */
-  .nav{grid-template-columns:auto 1fr auto;padding:0 1.5rem;}
+  .nav{grid-template-columns:44px 1fr 44px;padding:0 1.5rem;}
   .nav-left{display:none;}
   .nav-logo{text-align:center;}
   .nav-right{display:none;}
@@ -421,6 +438,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <header>
 <nav class="nav" aria-label="Main navigation">
   <ul class="nav-left">
@@ -431,7 +449,10 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
   <ul class="nav-right">
     <li><a href="#locations">Locations</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener">Instagram</a></li>
+    <li class="nav-social">
+      <a href="https://www.facebook.com/SheehanBrothersButchers/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+      <a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    </li>
     <li class="call-dropdown" id="call-dropdown">
       <button class="nav-call" aria-haspopup="true" aria-expanded="false" aria-controls="call-dropdown-menu">Call &amp; Collect <span class="nav-call-chevron" aria-hidden="true">&#9662;</span></button>
       <div class="call-dropdown-menu" id="call-dropdown-menu" role="menu">
@@ -452,7 +473,8 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
   <a href="#products" class="mob-item">Our Range</a>
   <a href="#locations" class="mob-item">Locations</a>
   <a href="#contact" class="mob-item">Contact</a>
-  <a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener" class="mob-item">Instagram</a>
+  <a href="https://www.facebook.com/SheehanBrothersButchers/" target="_blank" rel="noopener noreferrer" class="mob-item">Facebook</a>
+  <a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener noreferrer" class="mob-item">Instagram</a>
   <div class="mob-call-label">Call &amp; Collect</div>
   <a href="tel:02221724" class="mob-call">Mallow Main St &mdash; 022 21724</a>
   <a href="tel:02243692" class="mob-call">Mallow Ballydaheen &mdash; 022 43692</a>
@@ -461,7 +483,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
   <a href="tel:0214505075" class="mob-call">St. Luke&rsquo;s Cross &mdash; 021 450 5075</a>
 </nav>
 </header>
-<main>
+<main id="main-content">
 <section class="hero" aria-label="Hero">
   <div class="hero-left">
     <div class="hero-est">Established in Mallow, 1870</div>
@@ -477,7 +499,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-inner">
-    <span class="ticker-item">Award-Winning Sausages</span><span class="ticker-item">Spiced Beef</span><span class="ticker-item">Fresh Irish Beef</span><span class="ticker-item">Call &amp; Collect</span><span class="ticker-item">Mallow &middot; Glanmire &middot; Kanturk &middot; St. Luke&apos;s Cross</span><span class="ticker-item">Pork &amp; Lamb</span><span class="ticker-item">Deli &amp; Specials</span><span class="ticker-item">Award-Winning Sausages</span><span class="ticker-item">Spiced Beef</span><span class="ticker-item">Fresh Irish Beef</span><span class="ticker-item">Call &amp; Collect</span><span class="ticker-item">Mallow &middot; Glanmire &middot; Kanturk &middot; St. Luke&apos;s Cross</span><span class="ticker-item">Pork &amp; Lamb</span><span class="ticker-item">Deli &amp; Specials</span>
+    <span class="ticker-item">Award-Winning Sausages</span><span class="ticker-item">Spiced Beef</span><span class="ticker-item">Fresh Irish Beef</span><span class="ticker-item">Poultry</span><span class="ticker-item">Call &amp; Collect</span><span class="ticker-item">Mallow &middot; Glanmire &middot; Kanturk &middot; St. Luke&apos;s Cross</span><span class="ticker-item">Pork &amp; Lamb</span><span class="ticker-item">Deli &amp; Specials</span><span class="ticker-item">Award-Winning Sausages</span><span class="ticker-item">Spiced Beef</span><span class="ticker-item">Fresh Irish Beef</span><span class="ticker-item">Poultry</span><span class="ticker-item">Call &amp; Collect</span><span class="ticker-item">Mallow &middot; Glanmire &middot; Kanturk &middot; St. Luke&apos;s Cross</span><span class="ticker-item">Pork &amp; Lamb</span><span class="ticker-item">Deli &amp; Specials</span>
   </div>
 </div>
 
@@ -538,7 +560,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 <section class="instagram-section" aria-labelledby="insta-heading">
   <div class="insta-top">
     <div><div class="insta-label">Follow Along</div><p id="insta-heading" class="insta-handle">@sheehansbutchers</p></div>
-    <a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener" class="insta-link">View on Instagram &nearr;</a>
+    <a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener noreferrer" class="insta-link">View on Instagram &nearr;</a>
   </div>
   <div style="max-width:600px;margin:0 auto;">
     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DCv4XQiCkd-/" data-instgrm-version="14" style="background:#F8F4EE;border:1px solid rgba(24,18,16,0.1);border-radius:12px;margin:0;min-width:0;width:100%;"></blockquote>
@@ -590,7 +612,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
         <li><a href="#products">Our Range</a></li>
         <li><a href="#locations">Locations</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       </ul>
     </div>
     <div class="footer-cell footer-col">
@@ -602,8 +624,8 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
       </ul>
       <div class="footer-col-title" style="margin-top:1.5rem;">Follow Us</div>
       <ul>
-        <li><a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener">Instagram &nearr;</a></li>
-        <li><a href="https://www.facebook.com/SheehanButchers/" target="_blank" rel="noopener">Facebook &nearr;</a></li>
+        <li><a href="https://www.instagram.com/sheehansbutchers/" target="_blank" rel="noopener noreferrer">Instagram &nearr;</a></li>
+        <li><a href="https://www.facebook.com/SheehanBrothersButchers/" target="_blank" rel="noopener noreferrer">Facebook &nearr;</a></li>
       </ul>
     </div>
   </div>
@@ -639,6 +661,32 @@ function openMap(googleUrl, appleUrl) {
   var isMacSafari = /Macintosh/.test(ua) && /Safari/.test(ua) && !/Chrome|Firefox|OPR|Edge/.test(ua);
   window.open((isIOS || isMacSafari) ? appleUrl : googleUrl, '_blank');
 }
+
+// Contact form — on-page success message
+(function(){
+  var form = document.querySelector('.contact-form');
+  if(!form) return;
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var btn = form.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(form)});
+      if(res.ok){
+        form.innerHTML = '<div class="form-success"><p>Thank you — your message has been sent.</p><p>We\'ll be in touch as soon as we can.</p></div>';
+      } else {
+        btn.textContent = 'Send Message →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call your nearest store.');
+      }
+    } catch(err){
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call your nearest store.');
+    }
+  });
+})();
 
 // Call & Collect dropdown
 (function(){
