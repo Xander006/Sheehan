@@ -1,6 +1,8 @@
 name: Update sitemap lastmod
 
 on:
+  schedule:
+    - cron: '0 0 * * *'   # daily at midnight UTC
   push:
     branches: [main]
     paths-ignore:
