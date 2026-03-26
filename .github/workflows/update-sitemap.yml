@@ -1,0 +1,30 @@
+name: Update sitemap lastmod
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - sitemap.xml   # prevents loop when this workflow commits
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update lastmod to today
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          sed -i "s|<lastmod>[0-9-]*</lastmod>|<lastmod>${TODAY}</lastmod>|" sitemap.xml
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet sitemap.xml || (
+            git add sitemap.xml &&
+            git commit -m "chore: update sitemap lastmod [skip ci]" &&
+            git push
+          )
