@@ -501,8 +501,11 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 
 /* RESPONSIVE — tablet (≤1000px) */
 @media(max-width:1000px){
-  /* Nav: show hamburger, hide links */
-  .nav{grid-template-columns:44px 1fr 44px;padding:0 1.5rem;}
+  /* Nav: always frosted on mobile — transparent effect is desktop-only */
+  .nav{grid-template-columns:44px 1fr 44px;padding:0 1.5rem;background:rgba(251,248,243,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:rgba(44,31,24,0.18);}
+  .nav .nav-logo{color:var(--ink);}
+  .nav .nav-logo span{color:var(--red);}
+  .nav .hamburger span{background:var(--ink);}
   .nav-left{display:none;}
   .nav-logo{text-align:center;grid-column:2;}
   .nav-right{display:none;}
