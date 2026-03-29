@@ -527,22 +527,6 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.55;transform:scale(1.5);} }
 
-/* ── 1. HERITAGE STAMP ───────────────────────────────── */
-.heritage-stamp {
-  position: absolute; top: 2.5rem; right: 2.5rem;
-  width: 108px; height: 108px;
-  opacity: 0.28; pointer-events: none;
-}
-@media (max-width: 768px) { .heritage-stamp { display: none; } }
-
-/* ── 2. MEAT CUT SILHOUETTES ─────────────────────────── */
-.products-cuts {
-  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-}
-.products-cuts svg {
-  position: absolute; opacity: 0.04; fill: var(--ink);
-}
-.products-section { position: relative; }
 
 /* ── 3. RED HAIRLINE RULES ───────────────────────────── */
 #about        { border-top: 1px solid rgba(184,48,28,0.18); }
@@ -616,24 +600,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 <main id="main-content">
 <section class="hero" aria-label="Welcome to Sheehan Brothers Butchers">
   <div class="hero-left">
-    <!-- Heritage stamp -->
-    <svg class="heritage-stamp" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-      <defs>
-        <path id="arc-top" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0"/>
-        <path id="arc-bot" d="M 60,60 m -42,0 a 42,42 0 0,0 84,0"/>
-      </defs>
-      <circle cx="60" cy="60" r="52" fill="none" stroke="#F8F4EE" stroke-width="1"/>
-      <circle cx="60" cy="60" r="46" fill="none" stroke="#F8F4EE" stroke-width="0.4"/>
-      <text font-size="8.5" fill="#F8F4EE" font-family="Georgia,serif" letter-spacing="3.2">
-        <textPath href="#arc-top">EST. 1870 · MALLOW · CO. CORK</textPath>
-      </text>
-      <text font-size="8.5" fill="#F8F4EE" font-family="Georgia,serif" letter-spacing="3.2">
-        <textPath href="#arc-bot" startOffset="12%">IRELAND · CRAFT BUTCHERS</textPath>
-      </text>
-      <text x="60" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="19" fill="#F8F4EE" font-weight="bold" letter-spacing="-0.5">SB</text>
-      <text x="60" y="68" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" fill="#F8F4EE" letter-spacing="2.5">BUTCHERS</text>
-    </svg>
-    <div class="hero-est">Established in Mallow, 1870</div>
+<div class="hero-est">Established in Mallow, 1870</div>
     <h1 class="hero-title">Quality you can<br><em>count on.</em></h1>
     <p class="hero-sub">Seven generations of craft butchers across Cork City and North Cork. Award-winning sausages, spiced beef and the finest Irish cuts &mdash; prepared daily by people who take real pride in their work.</p>
     <a href="#locations" class="hero-cta">Find your nearest store &rarr;</a>
@@ -673,16 +640,7 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 </section>
 
 <section class="products-section" id="products" aria-labelledby="products-heading">
-  <!-- Meat cut silhouettes (decorative background) -->
-  <div class="products-cuts" aria-hidden="true">
-    <!-- Beef silhouette -->
-    <svg style="width:320px;top:-20px;right:5%" viewBox="0 0 200 120"><path d="M10,80 C10,80 20,40 50,35 C60,33 65,38 75,35 C85,32 88,20 100,18 C115,15 125,25 135,30 C145,35 155,30 165,35 C178,42 185,60 185,75 C185,90 175,95 165,92 C155,89 150,80 140,82 C130,84 125,95 115,95 C105,95 100,85 90,83 C80,81 75,90 65,92 C55,94 45,88 35,85 C25,82 15,88 10,80Z"/></svg>
-    <!-- Pig silhouette -->
-    <svg style="width:240px;bottom:10px;left:3%" viewBox="0 0 180 100"><path d="M15,65 C15,65 18,35 40,28 C48,25 55,30 65,28 C72,26 76,15 88,14 C100,13 108,22 118,26 C128,30 138,22 148,28 C160,35 165,55 162,68 C159,80 148,82 138,78 C128,74 122,65 112,67 C102,69 98,80 88,80 C78,80 74,70 64,68 C54,66 48,76 38,76 C28,76 18,74 15,65Z M148,28 C155,20 165,18 168,25 C171,32 162,38 155,35Z M15,65 C8,60 5,50 10,44 C15,38 22,42 20,50Z"/></svg>
-    <!-- Lamb silhouette -->
-    <svg style="width:180px;top:30px;left:40%" viewBox="0 0 140 90"><path d="M20,65 C20,65 22,38 42,30 C52,26 58,32 68,30 C76,28 80,18 90,16 C102,14 108,26 115,30 C122,34 128,28 132,35 C136,44 132,62 125,68 C118,74 108,70 100,66 C92,62 88,72 78,72 C68,72 64,62 55,60 C46,58 40,68 30,68 C24,68 20,68 20,65Z"/></svg>
-  </div>
-  <div class="products-header">
+<div class="products-header">
     <div><div class="products-label">What We Offer</div><h2 id="products-heading" class="products-title">The range</h2></div>
   </div>
   <div class="products-grid">
