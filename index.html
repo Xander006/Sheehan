@@ -334,7 +334,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 /* MOBILE MENU */
 .mobile-menu{display:flex;position:fixed;top:64px;left:0;right:0;background:var(--cream);border-bottom:2px solid var(--ink);z-index:99;flex-direction:column;padding:1rem 2rem 1.5rem;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity 0.25s ease,transform 0.25s ease,visibility 0.25s;pointer-events:none;}
 .mobile-menu.open{visibility:visible;opacity:1;transform:translateY(0);pointer-events:auto;}
-.mobile-menu a{font-size:0.82rem;font-weight:500;text-decoration:none;color:var(--ink);letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 0;border-bottom:1px solid var(--paper-dark);display:block;transition:color 0.2s;}
+.mobile-menu a{font-size:0.82rem;font-weight:500;text-decoration:none;color:var(--ink);letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 0;border-bottom:1px solid var(--paper-dark);display:block;transition:opacity 0.2s ease,transform 0.2s ease,color 0.2s;}
 .mobile-menu a:last-child{border-bottom:none;}
 .mobile-menu a:hover{color:var(--red);}
 .mobile-menu .mob-call{color:var(--red)!important;font-weight:500;}
@@ -589,6 +589,29 @@ footer{background:var(--dark-bg-2);color:var(--paper);padding:0;}
 .loc-status{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:0.5rem;vertical-align:middle;flex-shrink:0;}
 .loc-status.is-open{background:#4dbb4d;animation:pulse 2s ease-in-out infinite;}
 .loc-status.is-closed{background:#e05555;}
+
+/* LOC-CTA FILL WIPE */
+.loc-cta{position:relative;overflow:hidden;z-index:1;}
+.loc-cta::before{content:'';position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left center;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);z-index:-1;}
+.loc-cta:hover{color:#fff;border-color:transparent;}
+.loc-cta:hover::before{transform:scaleX(1);}
+
+/* MOBILE MENU LINK STAGGER */
+.mobile-menu > *{opacity:0;transform:translateY(5px);}
+.mobile-menu.open > *{opacity:1;transform:none;}
+.mobile-menu .mob-call-label{transition:opacity 0.2s ease,transform 0.2s ease;}
+.mobile-menu.open > *:nth-child(1){transition-delay:0.04s}
+.mobile-menu.open > *:nth-child(2){transition-delay:0.08s}
+.mobile-menu.open > *:nth-child(3){transition-delay:0.12s}
+.mobile-menu.open > *:nth-child(4){transition-delay:0.16s}
+.mobile-menu.open > *:nth-child(5){transition-delay:0.20s}
+.mobile-menu.open > *:nth-child(6){transition-delay:0.23s}
+.mobile-menu.open > *:nth-child(7){transition-delay:0.26s}
+.mobile-menu.open > *:nth-child(n+8){transition-delay:0.28s}
+@media(prefers-reduced-motion:reduce){.mobile-menu > *{opacity:1;transform:none;transition:color 0.2s;}}
+
+/* SCROLL PROGRESS BAR */
+#scroll-progress{position:fixed;top:0;left:0;width:0;height:2px;background:var(--red);z-index:200;pointer-events:none;}
 
 
 /* ── 3. RED HAIRLINE RULES ───────────────────────────── */
@@ -958,6 +981,19 @@ document.getElementById('years-count').textContent = new Date().getFullYear() - 
   dropdown.querySelector('.call-dropdown-menu').addEventListener('click', function(e){
     e.stopPropagation();
   });
+})();
+
+// Scroll progress bar
+(function(){
+  var bar=document.createElement('div');
+  bar.id='scroll-progress';
+  bar.setAttribute('aria-hidden','true');
+  document.body.appendChild(bar);
+  function update(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?window.scrollY/h*100:0)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
 })();
 
 // Irish bank holidays + open/closed status (badge + location dots)
